@@ -1,0 +1,30 @@
+<div class="container">
+  <div class='row'>
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <h2 class="px-3 mx-auto">注文履歴一覧</h2>
+       <table class="table table-hover table-inverse">
+        <thead>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払い金額</th>
+          <th>ステータス</th>
+          <th>注文詳細</th>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+         <tr>
+          <td><%= order.created_at %></td>
+          <td><%= order.address %></td>
+          <td><% order.order_details.each do |order_detail| %>
+      		　<%= order_detail.item.name %>
+      			  <% end %></td>
+          <td><%= order.total_payment %></td>
+          <td><%= order. status_i18n %></td>
+          <td><%= link_to "注文詳細", order_path(order), class: "btn btn-sm btn-success" %></td>
+         </tr>
+        <% end %>
+      </tbody>
+   </div>
+ </div>
+</div>

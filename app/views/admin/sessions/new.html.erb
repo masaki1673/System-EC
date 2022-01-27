@@ -1,0 +1,23 @@
+<div class="container">
+   <div class="row">
+     <div class='mx-auto col-12'>
+       <h1 class="px-3 mx-auto">管理者ログイン</h1>
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+         <table class="table table-hover table-inverse">
+          <tbody>
+          <tr>
+            <td><%= f.label :メール %></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :パスワード %></td>
+            <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+          </tr>
+          <p></p>
+          <tr>
+            <td><%= f.submit "ログイン", class: "btn btn-sm btn-success" %></td>
+            <% end %>
+          </tr>
+         </tbody>
+        </table>
+        

@@ -1,0 +1,62 @@
+ <div class="container">
+   <div class="row">
+     <div class='mx-auto col-12'>
+       <h1 class="px-3 mx-auto">新規会員登録</h1>
+       <%= form_with model: resource, url: customer_registration_path(resource), local: true do |f| %>
+       <%= render "publics/shared/error_messages", resource: resource %>
+       <table class="table table-hover table-inverse">
+        <tbody>
+         <tr>
+          <td>氏名　　<%= f.label :（姓） %></td>
+          <td><%= f.text_field :last_name, autofocus: true %></td>
+          <td><%= f.label :（名） %></td>
+          <td><%= f.text_field :first_name, autofocus: true %></td>
+         </tr>
+        
+         <tr>
+          <td>　　　　<%= f.label :（セイ）%></td>
+          <td><%= f.text_field :last_name_kana, autofocus: true %></td>
+          <td><%= f.label :（メイ）%>
+          <td><%= f.text_field :first_name_kana, autofocus: true %></td>
+         </tr>
+         <tr>
+          <td><%= f.label :郵便番号 %></td>
+          <td><%= f.text_field :postal_code, autofocus: true %></td>
+         </tr>
+         <tr>
+          <td><%= f.label :住所 %></td>
+          <td><%= f.text_field :address, autofocus: true %></td>
+         </tr>
+         <tr>
+          <td><%= f.label :電話番号 %></td>
+          <td><%= f.text_field :telephone_number, autofocus: true %></td>
+         </tr>
+         <tr>
+          <td><%= f.label :メールアドレス %></td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+         </tr>
+         <tr>
+          <td><%= f.label :パスワード %> (<%= @minimum_password_length %> 文字以上)</td>
+          <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+          </tr>
+          <tr>
+           <td><%= f.label :パスワード（確認用）%></td>
+           <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+          </tr>
+          <p></p>
+          <tr>
+           <td><%= f.submit "新規登録", class: "btn btn-sm btn-success" %></td>
+           <% end %>
+          </tr>
+         </tbody>
+        </table>
+        
+          <p></p>
+           <h4>既に登録済みの方</h4>
+          <p></p>
+          <h6>
+    　　　　　<%= link_to "こちら", new_customer_session_path  %>からログインしてください
+          </h6>
+      </div>
+    </div>
+ </div>

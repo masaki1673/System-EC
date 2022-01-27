@@ -1,0 +1,29 @@
+<main>
+ <div class="container">
+    <div class='row justify-content-center'>
+      <div class='col-4 col-sm-10 col-lg-8 col-xl-4'>
+         <%= attachment_image_tag @item, :image, format: 'jpeg', size: "300x300" %>
+      </div>
+       <div class='col-4 col-sm-10 col-lg-8 col-xl-4'>
+       <h1 class="px-3 mx-auto">商品詳細</h1>
+       <p>商品名 <%= @item.name%></P>
+       <p>商品説明 <%= @item.introduction %></p>
+       <p>ジャンル <%= @item.genre_id %></p>
+       <p>税込価格 <%= @item.price %>円</p>
+       <p>
+           販売ステータス 
+           <% if @item.is_active? %>
+           販売中
+           <% else %>
+           販売停止中
+           <% end %>
+       </p>
+      <%= form_with model: @cart_item, url:'/cart_items', local:true do |f| %>
+  　　   <%= f.select :amount, [['1個', 1], ['2個', 2], ['3個',3], ['4個',4]], { include_blank: true, selected: 1} %>
+  　　   <%= f.hidden_field :item_id, value: @item.id %>
+       <%= f.submit 'カートに入れる', class: "btn btn-success" %>
+      <% end %>
+     </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class='row'>
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <h2 class="px-3 mx-auto">会員情報編集</h2>
+      <%= form_with model:@customer, url:customers_update_path, local:true do |f| %>
+      <% if @customer.errors.any? %>
+      <%= @customer.errors.count %>error
+      <% @customer.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+      <% end %>
+      <h6>会員id</h6>
+      <%= @customer.id %>
+      <h6>氏名</h6>
+      <%= f.text_field :last_name %>
+      <%= f.text_field :first_name %>
+      <h6>フリガナ</h6>
+      <%= f.text_field :last_name_kana %>
+      <%= f.text_field :first_name_kana %>
+      <h6>郵便番号</h6>
+      <%= f.text_field :postal_code %>
+      <h6>住所</h6>
+      <%= f.text_field :address %>
+     <h6>電話番号</h6>
+     <%= f.text_field :telephone_number %>
+     <h6>メールアドレス</h6>
+     <%= f.text_field :email %>
+　　 <%= f.submit '変更を保存する', class: "btn btn-sm btn-success" %>
+     <%= link_to "退会する", customers_unsubscribe_path(@customer), class: "btn btn-sm btn-danger" %>
+     <% end %>
+    </div>
+  </div>
+</div>

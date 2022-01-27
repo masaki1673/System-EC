@@ -10,6 +10,36 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <div class="container">
+         <a class="navbar-brand" href="/"><span>nagano cake</span></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+           <ul class="navbar-nav ml-auto">
+             <% if customer_signed_in? %>
+               <%= link_to "マイページ", customers_my_page_path, class: "fas fa-user-circle nav-link text-light" %>
+               <%= link_to "商品一覧", items_path, class: "fas fa-birthday-cake nav-link text-light"%>
+               <%= link_to "カート", cart_items_path, class: "fas fa-shopping-cart nav-link text-light" %>
+               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "fas fa-sign-in-alt nav-link text-light"  %>
+             <% elsif admin_signed_in? %>
+               <%= link_to "商品一覧", admin_items_path, class: "fas fa-birthday-cake nav-link text-light" %>
+               <%= link_to "会員一覧", admin_customers_path, class: "fas fa-id-card-alt nav-link text-light" %>
+               <%= link_to "注文履歴一覧", admin_homes_path, class: "far fa-clipboard nav-link text-light" %>
+               <%= link_to "ジャンル一覧", admin_genres_path, class: "fas fa-utensils nav-link text-light" %>
+               <%= link_to "ログアウト", destroy_admin_session_path,  method: :delete,  class: "fas fa-sign-in-alt nav-link text-light"  %>
+             <% else %>
+               <%= link_to "About", homes_about_path, class: "fas fa-link nav-link text-light" %>
+               <%= link_to "商品一覧", items_path, class: "fas fa-birthday-cake nav-link text-light" %>
+               <%= link_to "新規登録", new_customer_registration_path, class: "fas fa-user-plus nav-link text-light" %>
+               <%= link_to "ログイン", new_customer_session_path, class: "fas fa-sign-in-alt nav-link text-light" %>
+             <% end %>
+           </ul>
+         </div>
+       </div>
+    </header>
     <%= yield %>
   </body>
 </html>

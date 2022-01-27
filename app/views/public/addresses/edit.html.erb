@@ -1,0 +1,22 @@
+ <div class="container">
+  <div class='row'>
+   <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <h2 class="px-3 mx-auto">配送先編集</h2>
+    <%= form_with model:@address, url: address_path(@address.id), local:true do |f| %>
+     <% if @address.errors.any? %>
+     <%= @address.errors.count %>error
+     <% @address.errors.full_messages.each do |message| %>
+     <%= message %>
+     <% end %>
+    <% end %>
+    <h6>郵便番号</h6>
+    <%= f.text_field :postal_code %>
+    <h6>住所</h6>
+    <%= f.text_field :address %>
+    <h6>宛名</h6>
+    <%= f.text_field :name %>
+    <td><%= f.submit '変更内容を保存', class: "btn btn-success" %></td>
+     <% end %>
+　 </div>
+  </div>
+</div>

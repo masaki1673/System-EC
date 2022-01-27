@@ -1,0 +1,32 @@
+<div class="container">
+  <div class='row'>
+    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
+      <h2 class="px-3 mx-auto">商品一覧</h2>
+      <%= form_with model: @item, url:admin_items_path, local:true do |f| %>
+      <% if @item.errors.any? %>
+      <%= @item.errors.count %>error
+      <% @item.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+      <% end %>
+
+     <h6>商品画像</h6>
+     <%= f.attachment_field :image %>
+     <h6>商品名</h6>
+     <%= f.text_field :name %>
+    <h6>商品説明</h6>
+    <%= f.text_area :introduction %>
+    <h6>ジャンル</h6>
+　  <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+  　<h6>税込価格</h6>
+    <%= f.text_area :price %>
+    <h6>販売ステータス</h6>
+    <%= f.radio_button :is_active, :sale, checked: true %>
+    <%= f.label :is_active, "販売中", {value: :sale, style: "display: inline-block;"} %>
+    <%= f.radio_button :is_active, :stop_selling %>
+    <%= f.label :is_active, "販売停止中", {value: :stop_selling, style: "display: inline-block;"} %>
+    <%= f.submit '新規登録' %>
+    <% end %>
+  </div>
+ </div>
+</div>

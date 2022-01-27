@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+.name{
+    margin-right: 50px;
+}
+.name_kana{
+    margin-right: 50px;
+}
+.email{
+    margin-right: 50px;
+}
+.postal_code{
+    margin-right: 50px;
+}
+.address{
+    margin-right: 50px;
+}
+.telephone_number{
+    margin-right: 50px;
+}
+.password{
+    margin-right: 50px;
+}
+.password_confirmation{
+    margin-right: 50px;
+}
+
+.background-image {
+  background-image: url(main2.jpg);
+  background-repeat:  no-repeat;             
+    background-position:center center;
+    background-size:auto;
+    width:100%;
+}
+
+.background_image {
+  background-image: url(top.jpg);
+  background-repeat:  no-repeat;             
+    background-position:center center;
+    background-size:contain;
+    width:100%;
+    height:400px; 
+}
+
+.tentativeImage {
+  background: rgba(255,255,255,0.7);
+}
